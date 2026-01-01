@@ -107,3 +107,65 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+const texts = [
+  "Light.Shadow.Story.",
+  "Cinematic Moments.",
+  "Visual Poetry.",
+];
+
+let textIndex = 0;
+let charIndex = 0;
+const speed = 80;
+const delay = 1000;
+const el = document.getElementById("typewriter");
+
+function type() {
+  if (charIndex < texts[textIndex].length) {
+    el.textContent += texts[textIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, speed);
+  } else {
+    setTimeout(erase, delay);
+  }
+}
+
+function erase() {
+  if (charIndex > 0) {
+    el.textContent = texts[textIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(erase, speed / 2);
+  } else {
+    textIndex = (textIndex + 1) % texts.length;
+    setTimeout(type, speed);
+  }
+}
+
+type();
+
+
+const toggleBtn = document.getElementById("themeToggle");
+
+// Apply saved theme on load
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "light") {
+  document.body.classList.add("light");
+  toggleBtn.textContent = "🌙";
+} else {
+  toggleBtn.textContent = "☀️";
+}
+
+// Toggle theme
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+
+  if (document.body.classList.contains("light")) {
+    localStorage.setItem("theme", "light");
+    toggleBtn.textContent = "🌙";
+  } else {
+    localStorage.setItem("theme", "dark");
+    toggleBtn.textContent = "☀️";
+  }
+});
+
