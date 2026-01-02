@@ -249,6 +249,9 @@ body.light {
   --subtext: #1a1a1a;
   --accent: #f4b03c;
   --footer-bg: #e8e8e8;
+  .hero{
+    background-image: url('images/hero2.jpg');
+  }
 }
 
 #themeToggle {
