@@ -1,6 +1,4 @@
 
-// Basic, dependency-free: lightbox + fade-in on scroll for masonry layout
-
 document.addEventListener('DOMContentLoaded', () => {
   const masonry = document.getElementById('masonry');
   const items = Array.from(document.querySelectorAll('.m-item img'));
@@ -57,9 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // click outside image closes
   lb.addEventListener('click', (e) => {
-    // if click target is the lightbox background (not image or caption)
     if (e.target === lb || e.target === lbCaption || e.target === lbImg.parentElement){
-      // do nothing — allow click on image area; only background closes.
     }
     if (e.target === lb) closeLightbox();
   });
@@ -69,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && lb.classList.contains('active')) closeLightbox();
   });
 
-  // FADE-IN ON SCROLL using IntersectionObserver
+  // FADE-IN ON SCROLL
   const observerOpts = { root: null, rootMargin: '0px', threshold: 0.12 };
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
