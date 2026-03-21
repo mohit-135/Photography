@@ -3,7 +3,7 @@
   --bg-2:#0f1112;
   --card:#0f1416;
   --muted:#ffffff;
-  --accent:#f4b84d; /* soft gold */
+  --accent:#38bdf8; /* soft gold */
   --glow: rgba(244,184,77,0.12);
 }
 
@@ -111,7 +111,7 @@ opacity:0.95}
   display:inline-block;
   padding:8px 18px;
   border-radius:24px;
-  background:linear-gradient(90deg, #ffaa2a, #fdb953);
+  background:linear-gradient(90deg, #38bdf8, #2bb7f3);
   color:#111;
   font-weight:700;
   text-decoration:none;
@@ -212,6 +212,17 @@ body {
   color:var(--subtext);
   background-color: var(--footer-bg);
 }
+.socials a{
+  color:#38bdf8;
+  text-decoration:none;
+  padding:8px 32px; 
+  font-size : 20px;
+}
+.socials{
+  display: flex ;
+  align-items: center;
+  justify-content: center;
+}
 
 /* ---------- Animations: fade-in on scroll ---------- */
 .fade{opacity:0;transform:translateY(16px);transition:opacity 650ms ease, transform 650ms ease}
@@ -260,7 +271,7 @@ body.light {
   --bg: #ffffff;
   --text: #111111;
   --subtext: #1a1a1a;
-  --accent: #f4b03c;
+  --accent: #38bdf8;
   --footer-bg: #e8e8e8;
   .hero{
     background-image: url('images/hero2.jpg');
