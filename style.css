@@ -293,3 +293,70 @@ body.light {
   transform: rotate(20deg);
 }
 
+@media (max-width: 600px) {
+  .hero-inner {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery {
+    column-count: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .nav a {
+    font-size: 14px;
+    margin: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  #typewriter {
+    font-size: 18px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about{
+    padding: 50px;
+  }
+  .socials{
+    display: flex;
+    flex-direction: column;
+    column-count: 2;
+  }
+} 
