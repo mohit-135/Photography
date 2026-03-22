@@ -104,41 +104,28 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-const texts = [
-  "Light.Shadow.Story.",
-  "Cinematic Moments.",
-  "Visual Poetry.",
+//===== Typewriter Effect =====
+const typewriterPhrases = [
+    "Light.Shadow.Story.",
+    "Cinematic Moments.",
+    "Visual Poetry.",
 ];
+let twIndex = 0, twChar = 0, twForward = true;
+const twEl = document.getElementById('typewriter');
 
-let textIndex = 0;
-let charIndex = 0;
-const speed = 80;
-const delay = 1000;
-const el = document.getElementById("typewriter");
-
-function type() {
-  if (charIndex < texts[textIndex].length) {
-    el.textContent += texts[textIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(type, speed);
+function typeTick(){
+  const phrase = typewriterPhrases[twIndex];
+  if(twForward){
+    twChar++;
+    if(twChar >= phrase.length){ twForward=false; setTimeout(typeTick,1000); return; }
   } else {
-    setTimeout(erase, delay);
+    twChar--;
+    if(twChar <= 0){ twForward=true; twIndex = (twIndex+1)%typewriterPhrases.length; setTimeout(typeTick,200); return; }
   }
+  twEl.textContent = phrase.slice(0, twChar);
+  setTimeout(typeTick, twForward ? 80 : 40);
 }
-
-function erase() {
-  if (charIndex > 0) {
-    el.textContent = texts[textIndex].substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(erase, speed / 2);
-  } else {
-    textIndex = (textIndex + 1) % texts.length;
-    setTimeout(type, speed);
-  }
-}
-
-type();
+typeTick();
 
 
 const toggleBtn = document.getElementById("themeToggle");

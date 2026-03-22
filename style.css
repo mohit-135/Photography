@@ -213,7 +213,7 @@ body {
   background-color: var(--footer-bg);
 }
 .socials a{
-  color:#38bdf8;
+  color:#d9bc1b;
   text-decoration:none;
   padding:8px 32px; 
   font-size : 20px;
@@ -228,17 +228,6 @@ body {
 .fade{opacity:0;transform:translateY(16px);transition:opacity 650ms ease, transform 650ms ease}
 .fade.visible{opacity:1;transform:none}
 
-/* ---------- Responsive ---------- */
-@media (max-width:1100px){
-   .masonry{column-count:2} 
-  }
-@media (max-width:700px){ 
-.masonry{column-count:1} 
-.hero-title{font-size:1.6rem} 
-.hero{height:44vh} 
-.nav a{margin-left:12px} 
-
-}
 
 /* ---------- Typewriter Effect ---------- */
 
@@ -292,6 +281,8 @@ body.light {
 #themeToggle:hover {
   transform: rotate(20deg);
 }
+
+/* RESPONSIVENESS */
 
 @media (max-width: 600px) {
   .hero-inner {
