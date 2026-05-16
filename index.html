@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="A personal photography gallery by Mohit featuring low light, nature, and candid mobile photographs." />
   <title>Mohit Photography</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/logo.png"/>
@@ -17,10 +18,13 @@
       </div>
       <nav class="nav">
         <a href="#gallery">Gallery</a>
-        <a href="https://mohit-135.github.io/Portfolio/">Portfolio</a>
-        <button id="themeToggle" aria-label="Toggle theme"> ☀️ </button>
-
-        
+        <a href="#about">About</a>
+        <a href="https://mohit-135.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+        <button id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+          <span class="theme-toggle-icon theme-toggle-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-toggle-icon theme-toggle-icon-moon" aria-hidden="true">☾</span>
+          <span class="theme-toggle-thumb"></span>
+        </button>
       </nav>
     </div>
   </header>
@@ -28,159 +32,187 @@
   <main>
     <section id="hero" class="hero">
       <div class="hero-inner container">
-        <h2 class="hero-title">Captured by ❤️</h2>
-        <p class="hero-sub">A simple, showcase of photographs that I clicked.</p>
-        <h1 id="typewriter"></h1>
-        <a href="#gallery" class="cta">See the work</a>
+        <p class="hero-kicker">Mobile photography by Mohit</p>
+        <h2 class="hero-title">Captured By ❤️</h2>
+        <p class="hero-sub">A personal gallery of moments captured on a VIVO Y39, from quiet nature frames to low-light streets and candid details.</p>
+        <p id="typewriter" aria-live="polite"></p>
+        <div class="hero-actions">
+          <a href="#gallery" class="cta">Explore gallery</a>
+          <a href="#about" class="secondary-cta">Meet the photographer</a>
+        </div>
+        <div class="hero-stats" aria-label="Photography highlights">
+          <span><strong>31</strong> frames</span>
+          <span><strong>VIVO Y39</strong> camera</span>
+          <!-- <span><strong>Low light</strong> mood</span> -->
+        </div>
       </div>
     </section>
 
     <section id="gallery" class="gallery container">
-      <h1 class="section-title" style="padding: 0 100px ;">Photographs</h1>
-      <p style="padding: 0 90px ;">Click on the photo to view in full screen</p>
+      <div class="gallery-intro">
+        <h2 class="section-title">Photographs</h2>
+        <p class="section-note">Click any photograph to view it full screen.</p>
+      </div>
 
       <div id="masonry" class="masonry">
-        <figure class="m-item fade" data-caption="Sunset over the valley">
-          <img src="images/photo1.jpg" alt="Sunset over valley">
+        <figure class="m-item fade">
+          <img src="images/photo1.jpg" alt="Sunset over a distant valley" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="City street at night">
-          <img src="images/photo2.jpg" alt="City street at night">
+        <figure class="m-item fade">
+          <img src="images/photo2.jpg" alt="City street photographed at night" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Portrait in natural light">
-          <img src="images/photo3.jpg" alt="Portrait in natural light">
+        <figure class="m-item fade">
+          <img src="images/photo3.jpg" alt="Portrait lit by natural light" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Foggy forest">
-          <img src="images/photo4.jpg" alt="Foggy forest">
+        <figure class="m-item fade">
+          <img src="images/photo4.jpg" alt="Foggy forest scene" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Architecture lines">
-          <img src="images/photo5.jpg" alt="Architecture lines">
+        <figure class="m-item fade">
+          <img src="images/photo5.jpg" alt="Architectural lines and shapes" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo6.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo6.jpg" alt="Candid street moment" loading="lazy" decoding="async">
         </figure>
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo7.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo7.jpg" alt="Quiet outdoor detail photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo8.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo8.jpg" alt="Warm evening photograph" loading="lazy" decoding="async">
         </figure>
         
-         <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo32.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo32.jpg" alt="Moody street composition" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo9.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo9.jpg" alt="Soft light study" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo10.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo10.jpg" alt="Natural texture photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo11.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo11.jpg" alt="Low-light mood photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo12.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo12.jpg" alt="Everyday detail photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo13.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo13.jpg" alt="Nature photograph with contrast" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo14.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo14.jpg" alt="Calm visual rhythm photograph" loading="lazy" decoding="async">
         </figure>
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo15.jpg" alt="Candid street moment">
-        </figure>
-
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo16.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo15.jpg" alt="Street-side observation" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo17.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo16.jpg" alt="Shape and shadow photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo18.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo17.jpg" alt="Small scene with strong mood" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo19.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo18.jpg" alt="Golden-hour detail photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo28.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo19.jpg" alt="Quiet candid frame" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo20.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo28.jpg" alt="Evening color photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo21.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo20.jpg" alt="Candid composition" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo22.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo21.jpg" alt="Natural frame photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo23.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo22.jpg" alt="Texture and light photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo24.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo23.jpg" alt="Deep contrast photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo25.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo24.jpg" alt="Still moment photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo26.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo25.jpg" alt="Outdoor story photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo27.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo26.jpg" alt="Scene framed by light" loading="lazy" decoding="async">
         </figure>
 
-
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo29.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo27.jpg" alt="Candid atmosphere photograph" loading="lazy" decoding="async">
         </figure>
 
-        <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo30.jpg" alt="Candid street moment">
+        <figure class="m-item fade">
+          <img src="images/photo29.jpg" alt="Soft contrast photograph" loading="lazy" decoding="async">
         </figure>
 
-        <!-- <figure class="m-item fade" data-caption="Candid street moment">
-          <img src="images/photo31.jpg" alt="Candid street moment">
-        </figure> -->
+        <figure class="m-item fade">
+          <img src="images/photo30.jpg" alt="Final gallery frame" loading="lazy" decoding="async">
+        </figure>
 
+        <figure class="m-item fade">
+          <img src="images/photo33.jpg" alt="Fresh perspective photograph" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
 
     <section id="about" class="about container fade">
-      <h3 class="section-title">About</h3>
-      <p>
-        Hi there 👋 I'm Mohit — I click Photographs by vivo Y39 : low light, nature , and candid story-telling.
-        The work here is curated to show mood, contrast and lines.
-      </p>
-      <div class="socials">
-        <a href="https://github.com/mohit-135" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/mohit-suthar-b5566838a/" target="_blank">LinkedIn</a>
-      <a href="https://x.com/mohit_suthar24" target="_blank">Twitter</a>
-      <a href="mailto:suthamohit999@gmail.com?subject=Hello Mohit&body=I want to connect with you">Email</a>
+      <div class="about-copy">
+        <p class="about-kicker">Behind the lens</p>
+        <h2 class="section-title">About Mohit</h2>
+        <p>
+          Hi, my name is Mohit. I am a 19-year-old photographer and a Computer Engineering student at YMCA Faridabad. Photography started for me as a way to notice ordinary moments more carefully: evening light, quiet streets, nature, shadows, and small details that people often walk past.
+        </p>
+        <p>
+          I shoot on a VIVO Y39 and enjoy creating images that feel simple, moody, and story-driven. This gallery brings together my interest in technology, creativity, and visual storytelling, one frame at a time.
+        </p>
+        <div class="socials">
+          <a href="https://github.com/mohit-135" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/mohit-suthar-b5566838a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://x.com/mohit_suthar24" target="_blank" rel="noopener noreferrer">Twitter</a>
+          <a href="mailto:suthamohit999@gmail.com?subject=Hello Mohit&body=I want to connect with you">Email</a>
+        </div>
+      </div>
+      <div class="about-panel" aria-label="Photography style">
+        <div>
+          <span>Focus</span>
+          <strong>Light, lines, silence</strong>
+        </div>
+        <div>
+          <span>Camera</span>
+          <strong>VIVO Y39</strong>
+        </div>
+        <div>
+          <span>Style</span>
+          <strong>Candid storytelling</strong>
+        </div>
       </div>
     </section>
   </main>
@@ -193,10 +225,12 @@
     </div>
   </footer>
   <!-- Lightbox -->
-<div id="lightbox" class="lightbox">
-  <button class="lb-close">&times;</button>
-  <img id="lb-image" src="" alt="">
-</div>
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <button class="lb-close" type="button" aria-label="Close image">&times;</button>
+    <div class="lightbox-content">
+      <img id="lb-image" src="" alt="">
+    </div>
+  </div>
 
 
   <script src="script.js"></script>

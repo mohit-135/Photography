@@ -1,154 +1,102 @@
-
-document.addEventListener('DOMContentLoaded', () => {
-  const masonry = document.getElementById('masonry');
-  const items = Array.from(document.querySelectorAll('.m-item img'));
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lb-image');
-  const lbCaption = document.getElementById('lb-caption');
-  const lbClose = document.querySelector('.lb-close');
-
-  // LIGHTBOX: open when clicking any image
-  document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll(".m-item img");
+document.addEventListener("DOMContentLoaded", () => {
+  const images = Array.from(document.querySelectorAll(".m-item img"));
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lb-image");
   const closeBtn = document.querySelector(".lb-close");
+  const themeToggle = document.getElementById("themeToggle");
+  const typewriter = document.getElementById("typewriter");
 
-  // When image is clicked
-  images.forEach(img => {
-    img.addEventListener("click", () => {
-      lightbox.classList.add("active");
-      lightboxImg.src = img.src;
-      document.body.style.overflow = "hidden"; // lock scroll
-    });
-  });
+  const openLightbox = (img) => {
+    lightbox.classList.add("active");
+    lightbox.setAttribute("aria-hidden", "false");
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
+  };
 
-  // Close lightbox
   const closeLightbox = () => {
     lightbox.classList.remove("active");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = "";
+    lightboxImg.alt = "";
     document.body.style.overflow = "";
   };
 
+  images.forEach((img) => {
+    img.addEventListener("click", () => openLightbox(img));
+  });
+
   closeBtn.addEventListener("click", closeLightbox);
 
-  // Click outside image
-  lightbox.addEventListener("click", e => {
-    if (e.target === lightbox) closeLightbox();
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
   });
 
-  // Press Esc to close
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape") closeLightbox();
-  });
-});
-
-
-  // Close functions
-  function closeLightbox(){
-    lb.classList.remove('active');
-    lb.setAttribute('aria-hidden','true');
-    lbImg.src = '';
-    document.body.style.overflow = '';
-  }
-
-  lbClose.addEventListener('click', closeLightbox);
-
-  // click outside image closes
-  lb.addEventListener('click', (e) => {
-    if (e.target === lb || e.target === lbCaption || e.target === lbImg.parentElement){
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("active")) {
+      closeLightbox();
     }
-    if (e.target === lb) closeLightbox();
   });
 
-  // Escape key closes
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lb.classList.contains('active')) closeLightbox();
-  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
 
-  // FADE-IN ON SCROLL
-  const observerOpts = { root: null, rootMargin: '0px', threshold: 0.12 };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // animate once
+  document.querySelectorAll(".fade").forEach((el) => observer.observe(el));
+
+  const phrases = ["Light. Shadow. Story.", "Cinematic Moments.", "Visual Poetry."];
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isTyping = true;
+
+  const typeTick = () => {
+    const phrase = phrases[phraseIndex];
+
+    if (isTyping) {
+      charIndex += 1;
+      if (charIndex >= phrase.length) {
+        typewriter.textContent = phrase;
+        isTyping = false;
+        window.setTimeout(typeTick, 1000);
+        return;
       }
-    });
-  }, observerOpts);
-
-  // observe figures and other fade elements
-  document.querySelectorAll('.fade').forEach(el => observer.observe(el));
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll(".m-item img");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lb-image");
-  const closeBtn = document.getElementById("closeBtn");
-
-  images.forEach(img => {
-    img.addEventListener("click", () => {
-      lightbox.classList.add("active");
-      lightboxImg.src = img.src;
-    });
-  });
-
-  closeBtn.addEventListener("click", () => {
-    lightbox.classList.remove("active");
-  });
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove("active");
+    } else {
+      charIndex -= 1;
+      if (charIndex <= 0) {
+        isTyping = true;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        window.setTimeout(typeTick, 250);
+        return;
+      }
     }
+
+    typewriter.textContent = phrase.slice(0, charIndex);
+    window.setTimeout(typeTick, isTyping ? 80 : 40);
+  };
+
+  typeTick();
+
+  const applyTheme = (theme) => {
+    const isLight = theme === "light";
+    document.body.classList.toggle("light", isLight);
+    themeToggle.setAttribute("aria-pressed", String(isLight));
+    themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+  };
+
+  applyTheme(localStorage.getItem("theme") || "dark");
+
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = document.body.classList.contains("light") ? "dark" : "light";
+    localStorage.setItem("theme", nextTheme);
+    applyTheme(nextTheme);
   });
 });
-
-//===== Typewriter Effect =====
-const typewriterPhrases = [
-    "Light.Shadow.Story.",
-    "Cinematic Moments.",
-    "Visual Poetry.",
-];
-let twIndex = 0, twChar = 0, twForward = true;
-const twEl = document.getElementById('typewriter');
-
-function typeTick(){
-  const phrase = typewriterPhrases[twIndex];
-  if(twForward){
-    twChar++;
-    if(twChar >= phrase.length){ twForward=false; setTimeout(typeTick,1000); return; }
-  } else {
-    twChar--;
-    if(twChar <= 0){ twForward=true; twIndex = (twIndex+1)%typewriterPhrases.length; setTimeout(typeTick,200); return; }
-  }
-  twEl.textContent = phrase.slice(0, twChar);
-  setTimeout(typeTick, twForward ? 80 : 40);
-}
-typeTick();
-
-
-const toggleBtn = document.getElementById("themeToggle");
-
-// Apply saved theme on load
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light") {
-  document.body.classList.add("light");
-  toggleBtn.textContent = "🌙";
-} else {
-  toggleBtn.textContent = "☀️";
-}
-
-// Toggle theme
-toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("light");
-
-  if (document.body.classList.contains("light")) {
-    localStorage.setItem("theme", "light");
-    toggleBtn.textContent = "🌙";
-  } else {
-    localStorage.setItem("theme", "dark");
-    toggleBtn.textContent = "☀️";
-  }
-});
-
