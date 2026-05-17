@@ -186,13 +186,13 @@ body.light .theme-toggle-thumb {
   min-height: clamp(390px, 58vh, 620px);
   margin-bottom: 46px;
   overflow: hidden;
-  background-image: url("images/hero.jpg");
+  background-image: url("photos/hero6.jpg");
   background-position: center;
   background-size: cover;
 }
 
 body.light .hero {
-  background-image: url("images/hero4.jpg");
+  background-image: url("photos/hero5.jpeg");
 }
 
 .hero::after {
