@@ -1,0 +1,11 @@
+.DS_Store
+images/
+photos/
+videos/
+designs/
+*.psd
+*.ai
+*.aep
+*.prproj
+*.mp4
+*.mov
